@@ -21,7 +21,7 @@ namespace sklepik.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("baza", throwIfV1Schema: false)
         {
         }
 

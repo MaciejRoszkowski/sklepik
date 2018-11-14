@@ -269,6 +269,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

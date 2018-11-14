@@ -77,19 +77,30 @@ namespace sklepik.Controllers
         }
 
         // GET: Product/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if(id== null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Product product = _db.Product.Find(id);
+            if(product==null)
+            {
+                return HttpNotFound();
+            }
+            return View(product);
         }
 
         // POST: Product/Delete/5
-        [HttpPost]
+        [HttpPost,ActionName("Delete")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                Product product = _db.Product.Find(id);
+                _db.Product.Remove(product);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch

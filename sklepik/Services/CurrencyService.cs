@@ -14,5 +14,9 @@ namespace sklepik.Services
             return 1f;
 
         }
+        private class Rates
+        {
+            public int mid { get; set; }
+        }
     }
 }

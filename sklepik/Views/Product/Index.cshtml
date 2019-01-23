@@ -4,13 +4,16 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Product manaagment</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Name)
         </th>
@@ -26,6 +29,27 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @if (item.ImageSmall != null)
+            {
+
+
+                var base64 = Convert.ToBase64String(item.ImageSmall);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+
+                <img src="@imgSrc" width="50" height="50" />
+            }
+            @if (item.ImageSmall == null && item.Image != null)
+            {
+
+                var base64 = Convert.ToBase64String(item.Image);
+                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+
+
+                <img src="@imgSrc" width="50" height="50" />
+            }
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
@@ -38,7 +62,9 @@
 
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+            @Html.ActionLink("Add to cart", "OrderNow", "ShoppingCart", new { id = item.Id }, null)
+
         </td>
     </tr>
 }

@@ -21,9 +21,19 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink(sklepik.Resource.Home, "Index", "Home")</li>
+                    <li>@Html.ActionLink(sklepik.Resource.Cart, "Index", "ShoppingCart")</li>
+                    <li>@Html.ActionLink(sklepik.Resource.Settings, "Index", "Settings")</li>
+
+                    @*<li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+
+                    @if (this.User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink(sklepik.Resource.Role, "Index", "Role")</li>
+                        <li>@Html.ActionLink(sklepik.Resource.Product, "Index", "Product")</li>
+                    }
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +43,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year -Shop app </p>
+            <p style="float:right">Number of users:@ApplicationInstance.Application["Totaluser"]</p>
         </footer>
     </div>
 

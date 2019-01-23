@@ -68,6 +68,12 @@ namespace sklepik.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+        [Display(Name ="Full Name")]
+        public string FullName { get; set; }
+        [Display(Name = "City")]
+        public string City { get; set; }
+        [Display(Name = "Adress")]
+        public string Adress { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

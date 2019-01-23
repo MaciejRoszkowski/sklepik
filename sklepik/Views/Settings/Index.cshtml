@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h1>Choose your language</h1></br>
+<tr >
+    <td>@Html.ActionLink("English", "ChangeLanguage", "Settings", new { LanguageAbbrevation = "en" }, null)  </td>
+    <td>@Html.ActionLink("Polski", "ChangeLanguage", "Settings", new { LanguageAbbrevation = "pl" }, null)</td>
+    <td>@Html.ActionLink("German", "ChangeLanguage", "Settings", new { LanguageAbbrevation = "de" }, null)</td>
+    @*@Request.Cookies["Language"].Value*@
+</tr>

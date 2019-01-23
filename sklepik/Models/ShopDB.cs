@@ -17,5 +17,6 @@ namespace sklepik.Models
         {
         }
         public DbSet<Product> Product { get; set; }
+        
     }
 }

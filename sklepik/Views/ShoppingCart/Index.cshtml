@@ -1,0 +1,47 @@
+﻿@using sklepik.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <tr>
+        <th>@sklepik.Resource.Name</th>
+        <th>@sklepik.Resource.Price</th>
+        <th>@sklepik.Resource.Quantity</th>
+        <th>@sklepik.Resource.SubTotal</th>
+    </tr>
+    @if (Session["Cart"] != null)
+    {
+        foreach (var cart in (List<Item>)Session["Cart"])
+        {
+            <tr>
+                <td>@cart.Product.Name</td>
+                <td>@(cart.Product.Price*(cart.Product.Vat+100)/100)</td>
+                <td>@cart.Quantity</td>
+                <td>@(String.Format("{0}", cart.Product.Price * cart.Quantity * (cart.Product.Vat + 100) / 100))</td>
+                <td>
+                    @Html.ActionLink(@sklepik.Resource.Delete, "Delete", "ShoppingCart", new { id = cart.Product.Id },
+                        new { onclick = "return confirm('Are you sure?');" })
+                </td>
+
+            </tr>
+        }
+         
+            List<Item> tmp = (List<Item>)Session["Cart"];
+            var total = String.Format("{0}", tmp.Sum(x => x.Quantity * x.Product.Price * (x.Product.Vat + 100) / 100));
+        
+                <tr>
+                    <td>@sklepik.Resource.Total: @total</td>
+                </tr>
+    }
+</table>
+
+<button class="alert-success">@sklepik.Resource.Finnish </button>
+
+
+@if(Session["Cart"] == null)
+{
+    <p>No Items in cart</p>
+}
+
+

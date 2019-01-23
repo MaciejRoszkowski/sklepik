@@ -1,4 +1,5 @@
-﻿using System;
+﻿using sklepik.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,12 @@ namespace sklepik.Controllers
 {
     public class HomeController : Controller
     {
+        private ShopDB _db = new ShopDB();
         public ActionResult Index()
         {
-            return View();
+            return View(_db.Product
+                .Where(p=>p.IsHidden==false)
+                .ToList());
         }
 
         public ActionResult About()

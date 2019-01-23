@@ -29,5 +29,28 @@ namespace sklepik.Controllers
 
             return View("Index");
         }
+        [HttpPost]
+        public ActionResult SelectOptions(int vat,int theme, string currency, int pages)
+        {
+            HttpCookie cookieVat = new HttpCookie("Vat");
+            cookieVat.Value = vat.ToString();
+            Response.Cookies.Add(cookieVat);
+
+
+            HttpCookie cookieTheme = new HttpCookie("Theme");
+            cookieTheme.Value = theme.ToString();
+            Response.Cookies.Add(cookieTheme);
+
+            HttpCookie cookieCurrency = new HttpCookie("Currency");
+            cookieCurrency.Value = currency;
+            Response.Cookies.Add(cookieCurrency);
+
+            HttpCookie cookiePages = new HttpCookie("Pages");
+            cookiePages.Value = pages.ToString();
+            Response.Cookies.Add(cookiePages);
+
+            return View("Index");
+
+        }
     }
 }

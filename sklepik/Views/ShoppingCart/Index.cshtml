@@ -16,9 +16,20 @@
         {
             <tr>
                 <td>@cart.Product.Name</td>
-                <td>@(cart.Product.Price*(cart.Product.Vat+100)/100)</td>
+                <td>@(cart.Product.Price * (cart.Product.Vat + 100) / 100)</td>
                 <td>@cart.Quantity</td>
-                <td>@(String.Format("{0}", cart.Product.Price * cart.Quantity * (cart.Product.Vat + 100) / 100))</td>
+                <td>
+                    @if (Request.Cookies["Vat"].Value == "1")
+                    {
+                        @String.Format("{0}", cart.Product.Price * cart.Quantity);
+                    }
+                    else
+                    {
+                        @(String.Format("{0}", cart.Product.Price * cart.Quantity * (cart.Product.Vat + 100) / 100))
+
+                    }
+                </td>
+
                 <td>
                     @Html.ActionLink(@sklepik.Resource.Delete, "Delete", "ShoppingCart", new { id = cart.Product.Id },
                         new { onclick = "return confirm('Are you sure?');" })
@@ -26,20 +37,41 @@
 
             </tr>
         }
-         
-            List<Item> tmp = (List<Item>)Session["Cart"];
-            var total = String.Format("{0}", tmp.Sum(x => x.Quantity * x.Product.Price * (x.Product.Vat + 100) / 100));
-        
-                <tr>
-                    <td>@sklepik.Resource.Total: @total</td>
-                </tr>
+
+        List<Item> tmp = (List<Item>)Session["Cart"];
+
+
+
+        var vat = String.Format("{0}", tmp.Sum(x => x.Quantity * x.Product.Price * (x.Product.Vat) / 100));
+
+
+        var total = String.Format("{0}", tmp.Sum(x => x.Quantity * x.Product.Price));
+
+
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@sklepik.Resource.Total: @total + Vat: @vat</td>
+            <td></td>
+        </tr>
     }
 </table>
 
+<h2>Payment method</h2>
+<select id="Payment" name="Payment">
+
+    <option value="przelew">przelew</option>
+
+    <option value="personal">osobiście</option>
+
+</select>
+
 <button class="alert-success">@sklepik.Resource.Finnish </button>
 
-
-@if(Session["Cart"] == null)
+@Html.ActionLink("trash text here", "Trash", "ShoppingCart")
+@if (Session["Cart"] == null)
 {
     <p>No Items in cart</p>
 }

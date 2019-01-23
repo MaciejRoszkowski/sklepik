@@ -36,6 +36,7 @@ namespace sklepik
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             }
+            //todo początkowe wartości cookies
         }
         protected void Session_Start()
         {

@@ -22,11 +22,15 @@
         </dt>
 
         <dd>
-            @{
-                var price = Model.Price * (100 + Model.Vat) / 100;
+            @if (Request.Cookies["Vat"].Value == "1")
+            {
+                @Html.DisplayFor(modelItem => Model.Price);
             }
+            else
+            {
+                @(String.Format("{0}", Model.Price * (Model.Vat + 100) / 100))
 
-            @price
+            }
         </dd>
 
         <dt>
@@ -35,6 +39,13 @@
 
         <dd>
             @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vat)%
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Image)

@@ -1,0 +1,74 @@
+﻿@using sklepik.Models;
+@{
+    ViewBag.Title = "Trash";
+}
+
+<h2>trash</h2>
+<table class="table">
+    <tr>
+        <th>@sklepik.Resource.Name</th>
+        <th>@sklepik.Resource.Price</th>
+        <th>@sklepik.Resource.Quantity</th>
+    </tr>
+    @if (Session["Trash"] != null)
+    {
+        foreach (var trash in (List<Item>)Session["Trash"])
+        {
+            <tr>
+                <td>@trash.Product.Name</td>
+                <td>@(trash.Product.Price * (trash.Product.Vat + 100) / 100)</td>
+                <td>@trash.Quantity</td>
+                <td>
+                    @if (Request.Cookies["Vat"].Value == "1")
+                    {
+                        @String.Format("{0}", trash.Product.Price * trash.Quantity);
+                    }
+                    else
+                    {
+                        @(String.Format("{0}", trash.Product.Price * trash.Quantity * (trash.Product.Vat + 100) / 100))
+
+                    }
+                </td>
+
+                <td>
+                    @Html.ActionLink(@sklepik.Resource.Delete, "DeleteTrash", "ShoppingCart", new { id = trash.Product.Id },
+                        new { onclick = "return confirm('Are you sure?');" })
+                    @Html.ActionLink("przywróc go mi ", "RecoverTrash", "ShoppingCart", new { id = trash.Product.Id },
+    new { onclick = "return confirm('Are you sure?');" })
+                </td>
+
+
+            </tr>
+        }
+
+        List<Item> tmp = (List<Item>)Session["Trash"];
+
+
+
+        var vat = String.Format("{0}", tmp.Sum(x => x.Quantity * x.Product.Price * (x.Product.Vat) / 100));
+
+
+        var total = String.Format("{0}", tmp.Sum(x => x.Quantity * x.Product.Price));
+
+
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@sklepik.Resource.Total: @total + Vat: @vat</td>
+            <td></td>
+        </tr>
+    }
+</table>
+
+
+
+
+@if (Session["Cart"] == null)
+{
+    <p>No Items in trash</p>
+}
+
+
+

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<sklepik.Models.Product>
+﻿@model IPagedList<sklepik.Models.Product>
 @{
     ViewBag.Title = "Home Page";
 }
@@ -10,7 +10,16 @@
 <h5>You can change settings in Settings tab in navigation bar</h5>
 
 
+<form method="get">
+    <input type="search" name="searchTerm" />
+    <input type="submit" value="search by name" />
+</form>
+
 <table class="table">
+    <div class="pagedList" data-otf-target="#table">
+        @Html.PagedListPager(Model,page=>Url.Action("Index",new { page}),PagedListRenderOptions.MinimalWithItemCountText)
+
+    </div>
     <tr>
         <th>
             @sklepik.Resource.Image
@@ -56,7 +65,17 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Price)
+                    @if (Request.Cookies["Vat"].Value == "1")
+                    {
+                        @Html.DisplayFor(modelItem => item.Price);
+                    }
+                    else
+                    {
+                        @(String.Format("{0}", item.Price * (item.Vat + 100) / 100))
+
+                    }
+
+
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)

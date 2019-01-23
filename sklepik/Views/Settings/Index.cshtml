@@ -4,10 +4,56 @@
 }
 
 
-<h1>Choose your language</h1></br>
-<tr >
+<h2>Choose your language</h2></br>
+<tr>
     <td>@Html.ActionLink("English", "ChangeLanguage", "Settings", new { LanguageAbbrevation = "en" }, null)  </td>
     <td>@Html.ActionLink("Polski", "ChangeLanguage", "Settings", new { LanguageAbbrevation = "pl" }, null)</td>
     <td>@Html.ActionLink("German", "ChangeLanguage", "Settings", new { LanguageAbbrevation = "de" }, null)</td>
     @*@Request.Cookies["Language"].Value*@
+
 </tr>
+
+
+<h2>Czy jesteś zwolniony z vatu?</h2>
+@using (Html.BeginForm("SelectOptions", "Settings", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <select id="Vat" name="Vat">
+
+        <option value="0">Nie</option>
+
+        <option value="1">Tak</option>
+    </select>
+    <h2>theme</h2>
+    <select id="Theme" name="Theme">
+
+        <option value="0">0</option>
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+
+    </select>
+    <h2>Currency</h2>
+    <select id="Currency" name="Currency">
+
+        <option value="pln">pln</option>
+
+        <option value="usd">usd</option>
+        <option value="eur">eur</option>
+
+    </select>
+    <select id="Pages" name="Pages">
+
+        <option value="5">5</option>
+
+        <option value="10">10</option>
+
+    </select>
+
+    <br />
+    <p><input type="submit" value="Submit" /> </p>
+
+
+
+}
+

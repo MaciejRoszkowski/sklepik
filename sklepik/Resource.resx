@@ -126,8 +126,20 @@
   <data name="Cart" xml:space="preserve">
     <value>Cart</value>
   </data>
+  <data name="cash" xml:space="preserve">
+    <value>cash</value>
+  </data>
+  <data name="Catalog" xml:space="preserve">
+    <value>Catalog pdf</value>
+  </data>
+  <data name="courier" xml:space="preserve">
+    <value>courier</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="DeliveryMethod" xml:space="preserve">
+    <value>Delivery Method</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
@@ -135,8 +147,20 @@
   <data name="Details" xml:space="preserve">
     <value>Details</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="Finnish" xml:space="preserve">
     <value>Finnish</value>
+  </data>
+  <data name="h1" xml:space="preserve">
+    <value>Welcome in Sklepik</value>
+  </data>
+  <data name="h2" xml:space="preserve">
+    <value>Below you can browse through our products</value>
+  </data>
+  <data name="h3" xml:space="preserve">
+    <value>You can change settings in Settings tab in navigation bar</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
@@ -153,6 +177,12 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="parcel" xml:space="preserve">
+    <value>parcel</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Payment Method</value>
+  </data>
   <data name="Price" xml:space="preserve">
     <value>Price</value>
   </data>
@@ -165,6 +195,9 @@
   <data name="Role" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search by name</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -173,5 +206,11 @@
   </data>
   <data name="Total" xml:space="preserve">
     <value>Total</value>
+  </data>
+  <data name="transfer" xml:space="preserve">
+    <value>transfer</value>
+  </data>
+  <data name="trashbin" xml:space="preserve">
+    <value>trashbin</value>
   </data>
 </root>

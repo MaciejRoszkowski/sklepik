@@ -13,7 +13,7 @@ namespace sklepik
         protected void Application_Start()
         {
             Application["Totaluser"] = 0;
-
+            
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -26,7 +26,18 @@ namespace sklepik
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             HttpCookie cookie = HttpContext.Current.Request.Cookies["Language"];
-            if(cookie != null&&cookie.Value!=null)
+            HttpCookie cookieCurrency = HttpContext.Current.Request.Cookies["Currency"];
+            HttpCookie cookiePages = HttpContext.Current.Request.Cookies["Pages"];
+            HttpCookie cookieTheme = HttpContext.Current.Request.Cookies["Theme"];
+            HttpCookie cookieVat = HttpContext.Current.Request.Cookies["Vat"];
+
+
+
+            //if (cookieCurrency == null||cookieCu.Value!=null)
+
+
+
+            if (cookie != null&&cookie.Value!=null)
             {
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cookie.Value);
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(cookie.Value);
@@ -36,7 +47,31 @@ namespace sklepik
                 System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en");
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
             }
-            //todo początkowe wartości cookies
+            //if (cookieCurrency == null || cookieCurrency.Value != null)
+            //{
+            //    cookieCurrency.Value = "pln";
+            //    Response.Cookies.Add(cookieCurrency);
+
+            //}
+            //if (cookiePages == null || cookiePages.Value != null)
+            //{
+            //    cookiePages.Value = "5";
+            //    Response.Cookies.Add(cookiePages);
+
+            //}
+            //if (cookieTheme == null || cookieTheme.Value != null)
+            //{
+            //    cookieTheme.Value = "0";
+            //    Response.Cookies.Add(cookieTheme);
+
+            //}
+            //if (cookieVat == null || cookieVat.Value != null)
+            //{
+            //    cookieVat.Value = "0";
+            //    Response.Cookies.Add(cookieVat);
+
+            //}
+
         }
         protected void Session_Start()
         {

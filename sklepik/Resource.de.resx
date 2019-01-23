@@ -127,8 +127,20 @@ Zurück zur Listest</value>
   <data name="Cart" xml:space="preserve">
     <value>Wagen</value>
   </data>
+  <data name="cash" xml:space="preserve">
+    <value>Kasse</value>
+  </data>
+  <data name="Catalog" xml:space="preserve">
+    <value>Katalog pdf</value>
+  </data>
+  <data name="courier" xml:space="preserve">
+    <value>Kurier</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Löschen</value>
+  </data>
+  <data name="DeliveryMethod" xml:space="preserve">
+    <value>Zustellungsmethode</value>
   </data>
   <data name="Description" xml:space="preserve">
     <value>Beschreibung</value>
@@ -136,8 +148,20 @@ Zurück zur Listest</value>
   <data name="Details" xml:space="preserve">
     <value>Einzelheiten</value>
   </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Bearbeiten</value>
+  </data>
   <data name="Finnish" xml:space="preserve">
     <value>finnisch</value>
+  </data>
+  <data name="h1" xml:space="preserve">
+    <value>Willkommen in Sklepik</value>
+  </data>
+  <data name="h2" xml:space="preserve">
+    <value>Unten können Sie durch unsere Produkte blättern</value>
+  </data>
+  <data name="h3" xml:space="preserve">
+    <value>Sie können Einstellungen auf der Registerkarte Einstellungen in der Navigationsleiste ändern</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Hello</value>
@@ -154,6 +178,12 @@ Zurück zur Listest</value>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="parcel" xml:space="preserve">
+    <value>Paket</value>
+  </data>
+  <data name="PaymentMethod" xml:space="preserve">
+    <value>Zahlungsmethode</value>
+  </data>
   <data name="Price" xml:space="preserve">
     <value>Preis</value>
   </data>
@@ -166,6 +196,9 @@ Zurück zur Listest</value>
   <data name="Role" xml:space="preserve">
     <value>Rolle</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Suche mit Name</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
@@ -174,5 +207,11 @@ Zurück zur Listest</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>Gesamt</value>
+  </data>
+  <data name="transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="trashbin" xml:space="preserve">
+    <value>Mülleimer</value>
   </data>
 </root>

@@ -22,7 +22,25 @@ namespace sklepik.Controllers
                 .OrderBy(p=>p.Id)
                 .ToPagedList(page, Int32.Parse(Request.Cookies["Pages"].Value)));
         }
-        //Int32.Parse(Request.Cookies["Pages"].Value)
+        public String GenerateHtml(int? id)
+        {
+            if (id == null)
+            {
+                return "xD";
+            }
+            Product product = _db.Product.Find(id);
+
+            if (product == null)
+            {
+                return "blad bozy";
+            }
+            string returnValue = "&lth1&gt" + product.Description + "&lt/h1&gt" + "<br>" + "&ltp&gt" + product.Id + "&lth/p&gt" + "<br>" + "&lth2&gt" + product.Name + "&lt/h2&gt" + "<br>" + "&ltb&gt" + product.Price + "&lt/b&gt" + "<br>" + "&lti&gt" + product.Vat + "&lt/i&gt";
+
+
+
+            return returnValue;
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

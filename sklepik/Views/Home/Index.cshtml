@@ -1,23 +1,28 @@
 ﻿@model IPagedList<sklepik.Models.Product>
+
+@using sklepik.Services
+@{var kurs = CurrencyService.wylicz(Context.Request.Cookies["Currency"].Value); }
 @{
     ViewBag.Title = "Home Page";
 }
 
-<h1>Welcome in Sklepik</h1>
+<h1>@sklepik.Resource.h1</h1>
 
-<h3>Below you can browse through our products</h3>
+<h3>@sklepik.Resource.h2</h3>
+
+<h3>@sklepik.Resource.h3</h3>
 
 <h5>You can change settings in Settings tab in navigation bar</h5>
 
 
 <form method="get">
     <input type="search" name="searchTerm" />
-    <input type="submit" value="search by name" />
+    <input type="submit" value=@sklepik.Resource.Search />
 </form>
 
 <table class="table">
     <div class="pagedList" data-otf-target="#table">
-        @Html.PagedListPager(Model,page=>Url.Action("Index",new { page}),PagedListRenderOptions.MinimalWithItemCountText)
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), PagedListRenderOptions.MinimalWithItemCountText)
 
     </div>
     <tr>
@@ -31,6 +36,9 @@
             @sklepik.Resource.Price
         </th>
         <th>
+            VAT
+        </th>
+        <th>
             @sklepik.Resource.Description
         </th>
         <th></th>
@@ -39,58 +47,64 @@
     @foreach (var item in Model)
     {
 
-            <tr>
-                <td>
-                    @if (item.ImageSmall != null)
-                    {
+        <tr>
+            <td>
+                @if (item.ImageSmall != null)
+                {
 
 
-                        var base64 = Convert.ToBase64String(item.ImageSmall);
-                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    var base64 = Convert.ToBase64String(item.ImageSmall);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 
 
-                        <img src="@imgSrc" width="50" height="50" />
-                    }
-                    @if (item.ImageSmall == null && item.Image != null)
-                    {
+                    <img src="@imgSrc" width="50" height="50" />
+                }
+                @if (item.ImageSmall == null && item.Image != null)
+                {
 
-                        var base64 = Convert.ToBase64String(item.Image);
-                        var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
-
-
-                        <img src="@imgSrc" width="50" height="50" />
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @if (Request.Cookies["Vat"].Value == "1")
-                    {
-                        @Html.DisplayFor(modelItem => item.Price);
-                    }
-                    else
-                    {
-                        @(String.Format("{0}", item.Price * (item.Vat + 100) / 100))
-
-                    }
+                    var base64 = Convert.ToBase64String(item.Image);
+                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 
 
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
+                    <img src="@imgSrc" width="50" height="50" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @if (Request.Cookies["Vat"].Value == "1")
+                {
+                    @(String.Format("{0} {1}", kurs * item.Price, Context.Request.Cookies["Currency"].Value))
+                }
+                else
+                {
+                    @(String.Format("{0} {1}", kurs * item.Price * (item.Vat + 100) / 100, Context.Request.Cookies["Currency"].Value))
 
-                    @Html.ActionLink(@sklepik.Resource.Details, "Details", "Product", new { id = item.Id }, null) |
-                    @Html.ActionLink(@sklepik.Resource.AddToCart, "OrderNow", "ShoppingCart", new { id = item.Id }, null)
 
-                </td>
-            </tr>
-        
+                }
+
+
+            </td>
+            <td>
+                @item.Vat %
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+
+                @Html.ActionLink(@sklepik.Resource.Details, "Details", "Product", new { id = item.Id }, null) |
+                @Html.ActionLink(@sklepik.Resource.AddToCart, "OrderNow", "ShoppingCart", new { id = item.Id }, null)
+
+            </td>
+        </tr>
+
     }
 </table>
 
+
+<h3>@Html.ActionLink(@sklepik.Resource.Catalog, "CreatePdf", "Home")</h3>
 
 
 

@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@using sklepik.Services
+@{var kurs = CurrencyService.wylicz(Context.Request.Cookies["Currency"].Value); }
 <table class="table">
     <tr>
         <th>@sklepik.Resource.Name</th>
@@ -16,16 +17,16 @@
         {
             <tr>
                 <td>@cart.Product.Name</td>
-                <td>@(cart.Product.Price * (cart.Product.Vat + 100) / 100)</td>
+                <td>@(cart.Product.Price * (cart.Product.Vat + 100) / 100 * kurs) @Context.Request.Cookies["Currency"].Value</td>
                 <td>@cart.Quantity</td>
                 <td>
                     @if (Request.Cookies["Vat"].Value == "1")
                     {
-                        @String.Format("{0}", cart.Product.Price * cart.Quantity);
+                        @String.Format("{0}{1}", cart.Product.Price * cart.Quantity * kurs, Context.Request.Cookies["Currency"].Value);
                     }
                     else
                     {
-                        @(String.Format("{0}", cart.Product.Price * cart.Quantity * (cart.Product.Vat + 100) / 100))
+                        @(String.Format("{0}{1}", cart.Product.Price * cart.Quantity * (cart.Product.Vat + 100) / 100 * kurs, @Context.Request.Cookies["Currency"].Value))
 
                     }
                 </td>
@@ -58,22 +59,34 @@
         </tr>
     }
 </table>
-
-<h2>Payment method</h2>
-<select id="Payment" name="Payment">
-
-    <option value="przelew">przelew</option>
-
-    <option value="personal">osobiście</option>
-
-</select>
-
-<button class="alert-success">@sklepik.Resource.Finnish </button>
-
-@Html.ActionLink("trash text here", "Trash", "ShoppingCart")
 @if (Session["Cart"] == null)
 {
     <p>No Items in cart</p>
 }
+
+<h2>@Html.ActionLink("trashbin", "Trash", "ShoppingCart")</h2>
+
+
+<h2>Payment method</h2>
+<select id="Payment" name="Payment">
+
+    <option value="transfer">@sklepik.Resource.transfer</option>
+
+    <option value="cash">@sklepik.Resource.cash</option>
+
+</select>
+<h2>Shipping method</h2>
+<select id="Payment" name="Payment">
+
+    <option value="kurier">@sklepik.Resource.courier</option>
+
+    <option value="paczka">@sklepik.Resource.parcel</option>
+
+</select>
+
+<br />
+<button class="alert-success">@sklepik.Resource.Finnish </button>
+
+
 
 

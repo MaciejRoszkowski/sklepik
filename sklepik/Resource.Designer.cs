@@ -88,11 +88,47 @@ namespace sklepik {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to cash.
+        /// </summary>
+        public static string cash {
+            get {
+                return ResourceManager.GetString("cash", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Catalog pdf.
+        /// </summary>
+        public static string Catalog {
+            get {
+                return ResourceManager.GetString("Catalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to courier.
+        /// </summary>
+        public static string courier {
+            get {
+                return ResourceManager.GetString("courier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delivery Method.
+        /// </summary>
+        public static string DeliveryMethod {
+            get {
+                return ResourceManager.GetString("DeliveryMethod", resourceCulture);
             }
         }
         
@@ -115,11 +151,47 @@ namespace sklepik {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Finnish.
         /// </summary>
         public static string Finnish {
             get {
                 return ResourceManager.GetString("Finnish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome in Sklepik.
+        /// </summary>
+        public static string h1 {
+            get {
+                return ResourceManager.GetString("h1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Below you can browse through our products.
+        /// </summary>
+        public static string h2 {
+            get {
+                return ResourceManager.GetString("h2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can change settings in Settings tab in navigation bar.
+        /// </summary>
+        public static string h3 {
+            get {
+                return ResourceManager.GetString("h3", resourceCulture);
             }
         }
         
@@ -169,6 +241,24 @@ namespace sklepik {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to parcel.
+        /// </summary>
+        public static string parcel {
+            get {
+                return ResourceManager.GetString("parcel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Payment Method.
+        /// </summary>
+        public static string PaymentMethod {
+            get {
+                return ResourceManager.GetString("PaymentMethod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Price.
         /// </summary>
         public static string Price {
@@ -205,6 +295,15 @@ namespace sklepik {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search by name.
+        /// </summary>
+        public static string Search {
+            get {
+                return ResourceManager.GetString("Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string Settings {
@@ -228,6 +327,24 @@ namespace sklepik {
         public static string Total {
             get {
                 return ResourceManager.GetString("Total", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to transfer.
+        /// </summary>
+        public static string transfer {
+            get {
+                return ResourceManager.GetString("transfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to trashbin.
+        /// </summary>
+        public static string trashbin {
+            get {
+                return ResourceManager.GetString("trashbin", resourceCulture);
             }
         }
     }

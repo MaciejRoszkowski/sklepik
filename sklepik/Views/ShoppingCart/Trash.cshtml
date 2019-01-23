@@ -2,6 +2,8 @@
 @{
     ViewBag.Title = "Trash";
 }
+@using sklepik.Services
+@{var kurs = CurrencyService.wylicz(Context.Request.Cookies["Currency"].Value); }
 
 <h2>trash</h2>
 <table class="table">
@@ -21,11 +23,11 @@
                 <td>
                     @if (Request.Cookies["Vat"].Value == "1")
                     {
-                        @String.Format("{0}", trash.Product.Price * trash.Quantity);
+                        @String.Format("{0}{1}", trash.Product.Price * trash.Quantity*kurs, Context.Request.Cookies["Currency"].Value);
                     }
                     else
                     {
-                        @(String.Format("{0}", trash.Product.Price * trash.Quantity * (trash.Product.Vat + 100) / 100))
+                        @(String.Format("{0}{1}", trash.Product.Price * trash.Quantity * (trash.Product.Vat + 100) / 100*kurs, Context.Request.Cookies["Currency"].Value))
 
                     }
                 </td>

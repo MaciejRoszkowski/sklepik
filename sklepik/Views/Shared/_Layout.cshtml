@@ -5,11 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sklep</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
 
+    @Scripts.Render("~/bundles/modernizr")
+    @{
+
+
+        string theme = "";
+        if (Request.Cookies["Theme"] != null)
+        {
+            theme = Request.Cookies["Theme"].Value.ToString();
+        }
+
+        if (theme == "1")
+        {
+            <link rel="stylesheet" href="~/Content/bootstrap-superhero.css" />
+        }
+        else if (theme == "0")
+        {
+            <link rel="stylesheet" href="~/Content/bootstrap-lumen.css" />
+        }
+        else if (theme == "2")
+        {
+            <link rel="stylesheet" href="~/Content/bootstrap-flatty.css" />
+        }
+
+        else
+        {
+            <link rel="stylesheet" href="~/Content/bootstrap.css" />
+        }
+
+    }
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-expand-lg navbar-dark navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

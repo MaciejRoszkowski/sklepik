@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Details";
 }
-
+@using sklepik.Services
+@{var kurs = CurrencyService.wylicz(Context.Request.Cookies["Currency"].Value); }
 <h2>Details</h2>
 
 <div>
@@ -11,14 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @sklepik.Resource.Name
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Price)
+            @sklepik.Resource.Price
         </dt>
 
         <dd>
@@ -28,13 +29,13 @@
             }
             else
             {
-                @(String.Format("{0}", Model.Price * (Model.Vat + 100) / 100))
+                @(String.Format("{0}{1}", Model.Price*kurs * (Model.Vat + 100) / 100, Context.Request.Cookies["Currency"].Value))
 
             }
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @sklepik.Resource.Description
         </dt>
 
         <dd>
@@ -48,7 +49,7 @@
             @Html.DisplayFor(model => model.Vat)%
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Image)
+            @sklepik.Resource.Image
         </dt>
         <dd>
 
@@ -67,6 +68,5 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(sklepik.Resource.BackToList, "Index")
 </p>

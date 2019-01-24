@@ -14,17 +14,17 @@
 </tr>
 
 
-<h2>Czy jesteś zwolniony z vatu?</h2>
+<h2>@Resource.Vatfree</h2>
 @using (Html.BeginForm("SelectOptions", "Settings", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 
     <select id="Vat" name="Vat">
 
-        <option value="0">Nie</option>
+        <option value="0">@Resource.No</option>
 
-        <option value="1">Tak</option>
+        <option value="1">@Resource.Yes</option>
     </select>
-    <h2>theme</h2>
+    <h2>@Resource.Theme</h2>
     <select id="Theme" name="Theme">
 
         <option value="0">0</option>
@@ -35,7 +35,7 @@
 
 
     </select>
-    <h2>Currency</h2>
+    <h2>@Resource.Currency</h2>
     <select id="Currency" name="Currency">
 
         <option value="pln">pln</option>
@@ -43,6 +43,7 @@
         <option value="eur">eur</option>
 
     </select>
+    <h2>@Resource.NumberPages</h2>
     <select id="Pages" name="Pages">
 
         <option value="5">5</option>

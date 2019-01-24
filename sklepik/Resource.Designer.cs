@@ -115,6 +115,15 @@ namespace sklepik {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Currency.
+        /// </summary>
+        public static string Currency {
+            get {
+                return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -241,6 +250,24 @@ namespace sklepik {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of products on page.
+        /// </summary>
+        public static string NumberPages {
+            get {
+                return ResourceManager.GetString("NumberPages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to parcel.
         /// </summary>
         public static string parcel {
@@ -322,6 +349,15 @@ namespace sklepik {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose your theme.
+        /// </summary>
+        public static string Theme {
+            get {
+                return ResourceManager.GetString("Theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         public static string Total {
@@ -345,6 +381,24 @@ namespace sklepik {
         public static string trashbin {
             get {
                 return ResourceManager.GetString("trashbin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you free of paying vat?.
+        /// </summary>
+        public static string Vatfree {
+            get {
+                return ResourceManager.GetString("Vatfree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

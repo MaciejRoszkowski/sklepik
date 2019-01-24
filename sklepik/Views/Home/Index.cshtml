@@ -75,11 +75,11 @@
             <td>
                 @if (Request.Cookies["Vat"].Value == "1")
                 {
-                    @(String.Format("{0} {1}", kurs * item.Price, Context.Request.Cookies["Currency"].Value))
+                    @(String.Format("{0:0.00} {1}",  item.Price/kurs, Context.Request.Cookies["Currency"].Value))
                 }
                 else
                 {
-                    @(String.Format("{0} {1}", kurs * item.Price * (item.Vat + 100) / 100, Context.Request.Cookies["Currency"].Value))
+                    @(String.Format("{0:0.00} {1}",  item.Price/kurs * (item.Vat + 100) / 100, Context.Request.Cookies["Currency"].Value))
 
 
                 }

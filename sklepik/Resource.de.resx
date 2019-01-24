@@ -214,4 +214,22 @@ Zurück zur Listest</value>
   <data name="trashbin" xml:space="preserve">
     <value>Mülleimer</value>
   </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Währung</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nein</value>
+  </data>
+  <data name="NumberPages" xml:space="preserve">
+    <value>Anzahl der Produkte auf der Seite</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Wähle dein Thema</value>
+  </data>
+  <data name="Vatfree" xml:space="preserve">
+    <value>Sind Sie frei von Mehrwertsteuer?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
 </root>

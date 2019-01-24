@@ -213,4 +213,22 @@
   <data name="trashbin" xml:space="preserve">
     <value>śmietnik</value>
   </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Waluta</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Nie</value>
+  </data>
+  <data name="NumberPages" xml:space="preserve">
+    <value>Ilość produktów na stronie</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Wybierz skórkę</value>
+  </data>
+  <data name="Vatfree" xml:space="preserve">
+    <value>Czy jesteś zwolniony z vatu?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Tak</value>
+  </data>
 </root>

@@ -213,4 +213,22 @@
   <data name="trashbin" xml:space="preserve">
     <value>trashbin</value>
   </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NumberPages" xml:space="preserve">
+    <value>Number of products on page</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Choose your theme</value>
+  </data>
+  <data name="Vatfree" xml:space="preserve">
+    <value>Are you free of paying vat?</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
 </root>
